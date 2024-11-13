@@ -14,26 +14,26 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [productData]=useState([]);
-  
+
   return (
     <BrowserRouter>
     <div>
-      <Nav /> {/* Navigation will appear on all pages */}
-      
+      <Nav /> 
+
       <Routes>
-        {/* Define routes for different components */}
+        {/ Define routes for different components /}
         <Route path="/" element={<Home  products={productData}  />} />
         <Route path="/about" element={<About />} />
         <Route path="/Addproduct" element={<Addproduct />} />
-       <Route path="*" element={<Nopage />} />
+       <Route path="" element={<Nopage />} />
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Productdetails/:id" element={<Productdetails />} />
 
-      </Routes>
-      <ToastContainer />
-      <Footer />
-    </div>
-
+  </Routes>
+  <ToastContainer />
+  
+  <Footer />
+</div>
   </BrowserRouter>
   );
 }
