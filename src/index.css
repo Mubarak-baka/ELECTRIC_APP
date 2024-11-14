@@ -46,3 +46,97 @@ code {
   width: 100%;
 }
 
+@media print {
+  /* Styles for print */
+}
+.navbar {
+  position: fixed; /* Fixes the navbar to the top */
+  top: 0; /* Aligns it to the top of the viewport */
+  width: 100%; /* Ensures it takes the full width */
+  z-index: 1000; /* Ensures it stays above other content */
+}
+
+body {
+  padding-top: 56px; /* Adjust this value based on the height of your navbar to avoid content being hidden behind it */
+}
+
+.like-dislike-container {
+  --dark-grey: #353535;
+  --middle-grey: #767676;
+  --lightest-grey: linear-gradient(#fafafa,#ebebeb);
+  --shadow: 0 5px 15px 0 #00000026;
+  --shadow-active: 0 5px 5px 0 #00000026;
+  --border-radius-main: 10px;
+  --border-radius-icon: 50px;
+  position: relative;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  color: var(--dark-grey);
+  opacity: .9;
+  margin: auto;
+  padding: 1.5rem;
+  font-weight: 600;
+  background: var(--lightest-grey);
+  max-width: max-content;
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--shadow);
+  transition: .2s ease all;
+}
+
+.like-dislike-container:hover {
+  box-shadow: var(--shadow-active);
+}
+
+.like-dislike-container .icons-box {
+  display: flex;
+}
+
+.like-dislike-container .icons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .6;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid var(--middle-grey);
+  border-radius: var(--border-radius-icon);
+  transition: .2s ease all;
+}
+
+.like-dislike-container .icons:hover {
+  opacity: .9;
+  box-shadow: var(--shadow);
+}
+
+.like-dislike-container .icons .btn-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.like-dislike-container .icons .svgs {
+  width: 1.3rem;
+  fill: #000000;
+  box-sizing: content-box;
+  padding: 10px 10px;
+  transition: .2s ease all;
+}
+
+/* Hide the default checkbox */
+.like-dislike-container .icons .input-box {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Add additional styles for animations and effects as needed */

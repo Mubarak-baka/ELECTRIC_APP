@@ -7,7 +7,7 @@ function Cart() {
     const [cartData, setCartData] = useState([]); 
 
     useEffect(() => {
-        fetch("http://localhost:3000/cart") 
+        fetch("https://electric-app.onrender.com/cart") 
             .then((response) => response.json())
             .then((data) => {
                 setCartData(data); 
@@ -17,7 +17,7 @@ function Cart() {
 
     // delete a transaction
     const deleteTransaction = (id) => {
-        fetch(`http://localhost:3000/cart/${id}`, {
+        fetch(`https://electric-app.onrender.com/cart/${id}`, {
             method: 'DELETE',
         })
         .then((response) => {
@@ -81,7 +81,7 @@ function Cart() {
                             ))}
                         </tbody>
                     </table>
-                    <button onClick={window.print()}>Print</button>
+                    <button onClick={(e) => { e.preventDefault(); window.print(); }}>Print</button>
                 </div>
             )}
         </div>

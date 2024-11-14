@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Feedback from './Feedback';
 
 function ProductDetails() {
     const [title, setTitle] = useState('');
@@ -12,7 +13,7 @@ function ProductDetails() {
     const[Quantity,setQuantity] =useState (0)
 
     useEffect(() => {
-        fetch(`http://localhost:3000/products/${id}`)
+        fetch(`https://electric-app.onrender.com/products/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setImage(data.image);
@@ -25,7 +26,7 @@ function ProductDetails() {
     }, [id]);
 
     function Delete() {
-        fetch(`http://localhost:3000/products/${id}`, {
+        fetch(`https://electric-app.onrender.com/products/${id}`, {
             method: 'DELETE',
         })
             .then((res) => res.json())
@@ -39,7 +40,7 @@ function ProductDetails() {
     function submit(e) {
         e.preventDefault();
 
-        fetch(`http://localhost:3000/products/${id}`, {
+        fetch(`https://electric-app.onrender.com/products/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -79,9 +80,14 @@ function ProductDetails() {
                 {/* Right Column - Product Details */}
                 <div className="col-md-6">
                     <h1 className="mb-3">{title}</h1>
-                    <h3 className="text-primary mb-3">Price: ${price}</h3>
+                    <h3 className="text-primary mb-3">Price: Ksh:{price}</h3>
                     <p className="mb-4">{description}</p>
                     <p className="mb-4">Quantity:{Quantity}</p>
+                    
+                    <div className='row justify-content-center' >
+          <Feedback />
+          </div>
+
                     <button onClick={Delete} type="button" className="btn mt-3 btn-danger btn-sm">DELETE</button>
                     <button 
                         type="button" 

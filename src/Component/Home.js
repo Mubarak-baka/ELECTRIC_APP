@@ -4,26 +4,34 @@ import AddProduct from './Addproduct';
 import ElectronicsSlider from './ElectronicsSlider';
 import { FaShoppingCart } from 'react-icons/fa'; 
 
+// Separate loader component (optional for clarity)
+const Loader = () => (
+    <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+        <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+    </div>
+);
+
 function Home() {
     const navigate = useNavigate(); 
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [cart, setCart] = useState([]); 
+    const [loading, setLoading] = useState(true);
 
     // Fetch products on load
     useEffect(() => {
-        fetch("http://localhost:3000/products")
+        fetch("https://electric-app.onrender.com/products")
             .then((response) => response.json())
-            .then((data) => setProducts(data))
-            .catch((error) => console.error("Error fetching products", error));
-    }, []);
-
-    // Load cart from localStorage if it exists
-    useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem("cart"));
-        if (savedCart) {
-            setCart(savedCart);
-        }
+            .then((data) => {
+                setProducts(data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error("Error fetching products", error);
+                setLoading(false); // In case of error, stop loading
+            });
     }, []);
 
     // Save cart to localStorage whenever it changes
@@ -81,7 +89,7 @@ function Home() {
     const submitCart = () => {
         const currentTimestamp = new Date().toISOString(); 
 
-        fetch("http://localhost:3000/cart", {
+        fetch("https://electric-app.onrender.com/cart", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -147,31 +155,39 @@ function Home() {
                     </button>
                 </div>
 
-                <div className="row">
-                    {filteredProducts.map(product => (
-                        <div className="col-md-4 mb-4" key={product.id}>
-                            <div className="card h-100 product-card">
-                            <Link 
-            to={`/Productdetails/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }} 
->
-                <img src={product.image} className="card-img-top"alt={product.title}
-        style={{ height: '200px', objectFit: 'cover' }} />
-        <div className="card-body">
-        <h5 className="card-title">{product.title}</h5>
-        </div>
-            <h5 className="card-title" style={{ color: 'red' }}>Ksh:{product.price}</h5>
-    </Link>
-
-                                <button
-                                    className="btn add-to-cart-btn"
-                                    onClick={() => addToCart(product)}
-                                >
-                                    <FaShoppingCart />
-                                </button>
+                {loading ? (
+                    <Loader /> // Show loader if data is still being fetched
+                ) : (
+                    <div className="row">
+                        {filteredProducts.map(product => (
+                            <div className="col-md-3 mb-4" key={product.id}>
+                                <div className="card h-100 product-card">
+                                    <Link 
+                                        to={`/Productdetails/${product.id}`} 
+                                        style={{ textDecoration: 'none', color: 'inherit' }}
+                                    >
+                                        <img 
+                                            src={product.image} 
+                                            className="card-img-top" 
+                                            alt={product.title}
+                                            style={{ height: '200px', objectFit: 'cover' }} 
+                                        />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{product.title}</h5>
+                                        </div>
+                                        <h5 className="card-title" style={{ color: 'red' }}>Ksh:{product.price}</h5>
+                                    </Link>
+                                    <button
+                                        className="btn add-to-cart-btn"
+                                        onClick={() => addToCart(product)}
+                                    >
+                                        <FaShoppingCart />
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                )}
             </div>
 
             {/* Modal to display cart items */}
@@ -247,7 +263,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-
         </>
     );
 }

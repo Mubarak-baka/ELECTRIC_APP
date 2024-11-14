@@ -1,5 +1,7 @@
 
 import React from 'react';
+import Feedback from './Feedback';
+
 
 function About() {
   return (
@@ -16,6 +18,9 @@ function About() {
             We pride ourselves on providing excellent customer service and a seamless shopping experience both online and in-store.
             Our mission is to bring you top-quality electronics that fit your needs and budget.
           </p>
+          <div className='row justify-content-center' >
+          <Feedback />
+          </div>
         </div>
         <div className="col-md-6">
           <img
@@ -25,7 +30,8 @@ function About() {
             style={{ borderRadius: '8px', marginBottom: '20px' }}
           />
     
-        </div>
+   
+      </div>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ function ProductScroll() {
 
     useEffect(() => {
         // Fetch products from the API
-        fetch('http://localhost:3000/products') // Adjust endpoint as needed
+        fetch('https://electric-app.onrender.com/products') // Adjust endpoint as needed
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error fetching products:', error));
