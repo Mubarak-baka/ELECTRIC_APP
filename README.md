@@ -15,19 +15,20 @@ Hosting: Netlify
 # Setup Instructions
 Clone the repository: git clone [*https://github.com/Mubarak-baka/ELECTRIC_APP*]
 Navigate to the directory: 
-Install dependencies: npm install
-                      npm install react-router-dom
-                      npm install react-Toastify 
-                      npm install Font Awesome
+Install dependencies:
+npm install
+npm install react-router-dom
+npm install react-Toastify 
+npm install Font Awesome
 Run the app: npm start
 
 ## Usage
-Browsing Products: View products by category and filter based on preferences.
-Adding Items to Cart: Add items to your cart directly from the product page.
-Deleting Products and carts from the box selection 
-Trail your Order all through to the checkout 
-Update Details of products 
-Account for the products selected for purchase 
+Browsing Products: 
+View products by category and filter based on your preferences.
+Adding Items to Cart: Add items to your cart directly from the product page. 
+Deleting Products and carts from the box selection.
+Trail your Order all through to the checkout.
+Update Details of products. Account for the products selected for purchase.
 
 ## Future Enhancements
 M-Pesa Integration: Enable mobile payments, automatic confirmations, and transaction tracking.
