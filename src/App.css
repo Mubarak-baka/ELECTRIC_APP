@@ -99,3 +99,15 @@
   background-color: #fff;
   border-color: #fff;
 }
+
+/* Add this CSS to your main CSS file or within the component using inline styles */
+.image-3d-container {
+  perspective: 1000px;
+  display: inline-block;
+}
+
+.image-3d {
+  transition: transform 0.2s;
+  transform-style: preserve-3d;
+}
+
