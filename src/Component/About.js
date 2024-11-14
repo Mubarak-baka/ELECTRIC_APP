@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-function About  (){
-    return (
-        <div>
-            <h1>Add product</h1>
-        </div>
-    )
-}
-export default About 
-=======
+
 import React from 'react';
 
 function About() {
@@ -41,4 +32,4 @@ function About() {
 }
 
 export default About;
->>>>>>> 352c749c5168e6e6e8b24890203421f199138ae7
+

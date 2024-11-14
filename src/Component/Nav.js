@@ -1,25 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg custom-navbar">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        {/* Logo */}
-        <div className="navbar-logo">
-          <img src="src/Component/Image/DALL·E 2024-11-11 19.25.10 - A beautiful logo design for 'Musas Electronic Shop' with a modern, clean, and sleek look. The logo includes the text 'Musas Electronic Shop' in a bold.webp" alt="logo" className="logo-image" />
-        </div>
-
-        {/* Title */}
-        <div className="navbar-brand">
-          <span>Musas Electronic Shop</span>
-        </div>
-
-        {/* Navigation Links */}
+        <Link className="navbar-brand" to="/">Musas Electronics</Link>
+        {/* Toggler Button for Small Screens */}
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" to="/">Home</Link>
             </li>

@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-function Cart (){
-    return (
-        <div>
-            <h1>Add product</h1>
-        </div>
-    )
-}
-export default Cart
-=======
+
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
@@ -98,4 +89,3 @@ function Cart() {
 }
 
 export default Cart;
->>>>>>> 352c749c5168e6e6e8b24890203421f199138ae7

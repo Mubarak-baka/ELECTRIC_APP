@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.electronics-slider {
+  width: 100%;
+  max-width: 800px; /* Adjust this as needed for overall slider width */
+  margin: auto;
+  padding: 20px;
+}
+
+.slider-image {
+  width: 100%; /* Keep the image responsive to the container /
+  max-height: 400px; / Adjust height to reduce size /
+  object-fit: cover; / Ensures the image covers the area without distortion /
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); / Optional: Adds a slight shadow for a polished look */
+}
+.product-card {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  margin: 0 10px;
+}
+
+.product-image {
+  max-height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.footer {
+  margin-top: auto;
+  width: 100%;
+}
+
